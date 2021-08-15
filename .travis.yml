@@ -15,14 +15,14 @@ scripts :
 # Creating images for production after test
 after_success :
   - docker build -t devalseth2706/multi-client ./client
-  - docker build -t devalseth2706/multi-ngnix ./ngnix
+  - docker build -t devalseth2706/multi-nginx ./nginx
   - docker build -t devalseth2706/multi-server ./server
   - docker build -t devalseth2706/multi-worker ./worker
 # Login to Docker Hub to push the images
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # After Login push all the build images to Docker hub
   - docker push devalseth2706/multi-client    
-  - docker push devalseth2706/multi-ngnix    
+  - docker push devalseth2706/multi-nginx    
   - docker push devalseth2706/multi-server    
   - docker push devalseth2706/multi-worker    
 

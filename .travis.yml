@@ -1,10 +1,12 @@
 sudo : required
+language: generic
+
 services :
   - docker
 
 # Creating image to run test before creating prod build
 before_install :
-  - docker build -t devalseth2706/react-test -f ./client/Dockerfile.dev .
+  - docker build -t devalseth2706/react-test -f ./client/Dockerfile.dev ./client
 
 # Running test cases for all the project before creating production build
 scripts :
